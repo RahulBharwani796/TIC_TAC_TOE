@@ -1,0 +1,152 @@
+#include <iostream>
+
+using namespace std;
+void board()
+{   cout<<" 1 | 2 | 3 ";
+    cout << "\n____________";
+    cout<<"\n 4 | 5 | 6 ";
+    cout << "\n____________";
+    cout<<"\n 7 | 8 | 9 ";
+
+}
+int main()
+{
+    int n,a[100],i,j,k,m=0;
+ board();
+ for(i=0;i<=9;i++)
+{
+    a[i]=i+1;
+}
+
+ for(j=0;j<20;j++)
+ {
+
+ if(j%2==0)
+{cout<<"\n\n1st player type position to place X: ";
+cin>>n;
+
+for(i=0;i<=9;i++)
+{
+    if(n==a[i])
+    {
+        a[i]='X';
+         for(i=0;i<=9;i++)
+         {
+             if(a[i]>9)
+           {
+
+            if(i%3==0)
+             {
+                 cout<<"\n "<<(char)a[i];
+             }
+             else
+             {
+                 cout<<" | "<<(char)a[i];
+             }
+             }
+             else
+             {
+                 if(i%3==0)
+                 {
+                     cout<<"\n "<<a[i];
+                 }
+                else
+                {
+                    cout<<" | "<<a[i];
+                }
+             }
+
+         }
+
+
+    }
+    else
+        continue;
+}}
+else
+{
+    cout<<"\n2nd player type position to place O: ";
+    cin>>n;
+    for(i=0;i<=9;i++)
+{
+    if(n==a[i])
+    {
+        a[i]='O';
+         for(i=0;i<=9;i++)
+         {
+             if(a[i]>9)
+           {
+               if(i%3==0)
+             {
+                 cout<<"\n "<<(char)a[i];
+             }
+             else
+             {
+                 cout<<" | "<<(char)a[i];
+             }
+             }
+             else
+             {
+                 if(i%3==0)
+                 {
+                     cout<<"\n "<<a[i];
+                 }
+                else
+                {
+                    cout<<" | "<<a[i];
+                }
+             }
+
+         }}
+
+
+    else
+        continue;
+}}
+for(k=0;k<=6;k++)
+{
+    if(k%3==0)
+    {
+        if(a[k]=='X'||a[k]=='0')
+        {
+            if((a[k]==a[k+1])&&(a[k+1]==a[k+2]))
+              {cout<<"PLAYER HAS WON";
+               m=1;
+                break;}
+        }
+    }
+}
+for(k=0;k<=2;k++)
+{
+    if(a[k]=='X'||a[k]=='O')
+    {
+        if((a[k]==a[k+3])&&(a[k+3]==a[k+6]))
+           {
+             cout<<"PLAYER HAS WON";
+             m=1;
+             break;
+
+           }
+    }
+}
+if((a[0]==a[4])&&(a[4]==a[8]))
+{
+    cout<<"PLAYER HAS WON";
+    m=1;
+}
+if((a[2]==a[4])&&(a[4]==a[6]))
+{
+    cout<<"PLAYER HAS WON";
+    m=1;
+}
+if((j==8)&&(m!=1))
+{
+   cout<<"MATCH IS DRAWN";
+   m=1;
+}
+if(m==1)
+break;
+ }
+ }
+
+
